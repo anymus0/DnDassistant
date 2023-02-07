@@ -1,0 +1,11 @@
+DECLARE
+  abilityScoreInput NUMBER := 17;
+  abilityModifier NUMBER;
+BEGIN
+  SELECT ABILITY_MODIFIERS.ABILITY_MODIFIER
+    INTO abilityModifier
+    FROM ABILITY_MODIFIERS
+    WHERE ABILITY_MODIFIERS.ABILITY_SCORE = abilityScoreInput
+    OR ABILITY_MODIFIERS.ABILITY_SCORE = abilityScoreInput - 1;
+    DBMS_OUTPUT.PUT_LINE(abilityModifier);
+END;
